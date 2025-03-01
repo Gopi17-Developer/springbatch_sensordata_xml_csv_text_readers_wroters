@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	 <Properties>
+        <Property name="log4j2.enableJansi">true</Property>
+    </Properties>
+    <Appenders>
+        <!-- Console Appender (With Colors) -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %highlight{%-5level} %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <!-- File Appender -->
+        <File name="FileLogger" fileName="B:/logs/sensor-data.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Root>
+
+        <Logger name="com.practice.sensordata" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Logger>
+    </Loggers>
+</Configuration>
