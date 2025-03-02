@@ -35,7 +35,7 @@ public class SensorDataSpringBatchApplication implements CommandLineRunner{
 		JobParameters jobParameters = new JobParametersBuilder().addDate("date",new Date()).toJobParameters();
 		org.springframework.batch.core.JobExecution  jobExecution= jobLauncher.run(temperatureSensorRootConfiguration.aggregateSensorJob(), jobParameters);
 		
-		logger.info("Batch Job Status: " + jobExecution.getExitStatus());
+		logger.info("Batch Job condition: " + jobExecution.getExitStatus());
 
 	}
 }
